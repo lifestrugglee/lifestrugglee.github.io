@@ -4,13 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yao-Shun (Patrick) Chuang | Clinical AI Researcher</title>
-<meta name="description" content="Clinical AI researcher building privacy-aware language models that extract information from electronic health records. Ph.D. in Biomedical Informatics, UTHealth Houston, December 2026. Available January 2027.">
+<meta name="description" content="Clinical AI researcher developing privacy-aware language models that extract information from electronic health records. Ph.D. in Biomedical Informatics, UTHealth Houston, December 2026. Available January 2027.">
 <meta name="author" content="Yao-Shun (Patrick) Chuang">
 <link rel="canonical" href="https://lifestrugglee.github.io/">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Yao-Shun (Patrick) Chuang | Clinical AI Researcher">
-<meta property="og:description" content="Privacy-aware language models for clinical information extraction. Available January 2027.">
+<meta property="og:description" content="Privacy-aware language models for clinical information extraction, and reliable estimates of patient state over time. Available January 2027.">
 <meta property="og:url" content="https://lifestrugglee.github.io/">
+<meta property="og:image" content="https://lifestrugglee.github.io/photo.jpg">
+<meta property="og:image:alt" content="Portrait of Yao-Shun (Patrick) Chuang">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#F5F7F5" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#10161C" media="(prefers-color-scheme: dark)">
@@ -131,6 +133,14 @@
     background: none; border: 1px solid var(--rule); border-radius: 50%; color: var(--ink); cursor: pointer;
   }
   .theme-toggle:hover { border-color: var(--ink-2); }
+  .nav-actions { display: flex; align-items: center; gap: .6rem; }
+  .nav-email {
+    display: inline-flex; align-items: center;
+    padding: .42rem .9rem; border-radius: .45rem;
+    background: var(--accent); color: var(--on-accent);
+    font-weight: 700; font-size: .92rem; text-decoration: none; white-space: nowrap;
+  }
+  .nav-email:hover { background: var(--accent-hover); color: var(--on-accent); text-decoration: none; }
   .theme-toggle svg { width: 1.05rem; height: 1.05rem; }
   .icon-sun { display: none; }
   :root[data-theme="dark"] .icon-sun { display: block; }
@@ -141,14 +151,26 @@
   }
 
   /* Hero */
-  .hero { padding-block: clamp(3rem, 8vw, 6rem) clamp(3rem, 6vw, 4.5rem); }
+  .hero { padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(3rem, 6vw, 4.5rem); }
+  .hero-head { display: flex; align-items: center; gap: clamp(1rem, 3.5vw, 2.25rem); }
+  .portrait {
+    flex: none;
+    width: clamp(5.75rem, 3.5rem + 7vw, 10rem);
+    height: auto;
+    aspect-ratio: 1826 / 2016;
+    object-fit: cover;
+    border-radius: .7rem;
+    background: var(--rule);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+  .hero-id { flex: 1; min-width: 0; }
   .hero h1 {
-    font-size: clamp(2.3rem, 1.3rem + 4vw, 3.9rem);
+    font-size: clamp(2rem, 1rem + 4.2vw, 3.9rem);
     line-height: 1.08;
     letter-spacing: -.015em;
     font-variation-settings: "opsz" 72;
   }
-  .role { margin-top: .9rem; color: var(--ink-2); font-size: 1.1rem; max-width: 40em; }
+  .role { margin: .8rem 0 0; color: var(--ink-2); font-size: 1.1rem; max-width: 40em; }
   .thesis {
     margin-top: clamp(2rem, 5vw, 3rem);
     max-width: 30em;
@@ -194,17 +216,6 @@
 
   .caption { margin-top: 1rem; font-size: .92rem; color: var(--ink-2); font-style: italic; }
 
-  .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
-  .btn {
-    display: inline-flex; align-items: center; gap: .5rem;
-    padding: .72rem 1.15rem; border-radius: .5rem;
-    border: 1.5px solid var(--ink); color: var(--ink);
-    font-weight: 700; font-size: 1rem; text-decoration: none;
-  }
-  .btn:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
-  .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-  .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--on-accent); }
-
   .facts {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
@@ -232,6 +243,30 @@
   .section-body { min-width: 0; max-width: 46rem; }
   .lede { font-size: 1.15rem; }
   .prose p { max-width: 38em; }
+
+  /* Research direction */
+  .thrusts { list-style: none; padding: 0; margin: 1.75rem 0; counter-reset: thrust; }
+  .thrusts > li {
+    counter-increment: thrust;
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    column-gap: .9rem;
+    padding-block: 1.15rem;
+    border-top: 1px solid var(--rule);
+  }
+  .thrusts > li + li { margin-top: 0; }
+  .thrusts > li:last-child { border-bottom: 1px solid var(--rule); }
+  .thrusts > li::before {
+    content: counter(thrust);
+    grid-row: span 2;
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    line-height: 1.05;
+    color: var(--accent);
+    font-variant-numeric: lining-nums;
+  }
+  .thrusts h3 { font-size: 1.12rem; line-height: 1.35; margin-bottom: .3rem; }
+  .prose .thrusts p { max-width: 36em; margin: 0; }
 
   /* Selected work */
   .work { list-style: none; padding: 0; margin: 0; }
@@ -264,10 +299,10 @@
   .what { display: block; margin-top: .5rem; font-size: .85rem; line-height: 1.4; color: var(--ink-2); }
 
   .also { margin-top: 2.25rem; }
-  .also h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: .8rem; }
-  .also li { max-width: 40em; }
+  .also h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: .6rem; }
+  .also p { max-width: 40em; }
 
-  /* Experience */
+  /* Experience, teaching */
   .roles { list-style: none; padding: 0; margin: 0; }
   .roles > li + li { margin-top: 2.25rem; }
   .role-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .1rem 1.5rem; align-items: baseline; }
@@ -275,17 +310,20 @@
   .when { font-size: .92rem; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
   .org { margin: .15rem 0 .7rem; color: var(--ink-2); }
   .roles ul li { max-width: 40em; }
+  .roles > li > p:not(.org) { max-width: 40em; }
 
   /* Publications */
+  .pubs-note { margin-bottom: 2rem; }
+  .pub-group { font-family: var(--sans); font-size: 1rem; font-weight: 700; margin: 2.25rem 0 1rem; }
+  .pubs-note + .pub-group { margin-top: 0; }
   .pubs { list-style: none; padding: 0; margin: 0; }
-  .pubs > li + li { margin-top: 1.6rem; }
+  .pubs > li + li { margin-top: 1.5rem; }
   .pub-title { display: block; font-family: var(--serif); font-size: 1.06rem; line-height: 1.45; font-weight: 500; }
   .pub-authors { display: block; margin-top: .3rem; font-size: .93rem; color: var(--ink-2); }
   .pub-authors strong { color: var(--ink); }
   .pub-venue { display: block; font-size: .93rem; color: var(--ink-2); }
   .pub-venue em { color: var(--ink); }
   .pub-venue a { font-weight: 700; margin-left: .35rem; }
-  .pubs-note { margin-bottom: 1.75rem; }
 
   /* Skills, education, recognition */
   .grid-dl { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 1rem 2rem; margin: 0; }
@@ -296,10 +334,13 @@
   .edu > li + li { margin-top: 1.25rem; }
   .edu h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 700; }
   .edu .when { white-space: normal; }
+  .edu .org { margin-bottom: 0; }
+  .edu .detail { margin: .35rem 0 0; font-size: .95rem; max-width: 40em; }
 
   .rec h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 700; margin-bottom: .55rem; }
   .rec + .rec { margin-top: 2rem; }
   .rec ul { list-style: none; padding: 0; }
+  .rec li { max-width: 42em; }
   .rec .yr { color: var(--ink-2); font-variant-numeric: tabular-nums; }
 
   /* Contact */
@@ -315,7 +356,7 @@
   footer { border-top: 1px solid var(--rule); padding-block: 2rem 2.5rem; font-size: .88rem; color: var(--ink-2); }
 
   /* Smaller screens */
-  @media (max-width: 860px) {
+  @media (max-width: 900px) {
     .nav-links { display: none; }
   }
   @media (max-width: 760px) {
@@ -329,6 +370,9 @@
     .grid-dl { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
     .grid-dl dd { margin-bottom: .9rem; }
   }
+  @media (max-width: 480px) {
+    .role { font-size: 1rem; }
+  }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -337,7 +381,7 @@
 
   @media print {
     :root { --paper: #fff; --ink: #000; --ink-2: #333; --rule: #bbb; --accent: #000; color-scheme: light; }
-    .site-nav, .cta, .caption, .skip { display: none !important; }
+    .site-nav, .caption, .skip { display: none !important; }
     .ent, .tag { animation: none; }
     .section { padding-block: 1.5rem; break-inside: avoid-page; }
     .section > h2 { position: static; }
@@ -354,16 +398,18 @@
   "jobTitle": "Clinical AI Researcher",
   "email": "mailto:iwill0202@gmail.com",
   "url": "https://lifestrugglee.github.io/",
+  "image": "https://lifestrugglee.github.io/photo.jpg",
   "address": { "@type": "PostalAddress", "addressLocality": "Houston", "addressRegion": "TX", "addressCountry": "US" },
   "alumniOf": [
     { "@type": "CollegeOrUniversity", "name": "The University of Texas Health Science Center at Houston" },
     { "@type": "CollegeOrUniversity", "name": "University of Texas at Arlington" },
     { "@type": "CollegeOrUniversity", "name": "Fu Jen Catholic University" }
   ],
-  "knowsAbout": ["Clinical natural language processing", "Large language models", "Information extraction", "Named entity recognition", "Synthetic clinical text", "PHI de-identification", "Vision-language models", "Biomedical informatics"],
+  "knowsAbout": ["Clinical natural language processing", "Large language models", "Information extraction", "Named entity recognition", "Synthetic clinical text", "PHI de-identification", "Clinical data quality", "Vision-language models", "Biomedical informatics"],
   "sameAs": [
-    "https://www.linkedin.com/in/yao-shun-chuang/",
+    "https://orcid.org/0000-0001-9582-9222",
     "https://scholar.google.com/citations?hl=en&user=EGJlBtcAAAAJ",
+    "https://www.linkedin.com/in/yao-shun-chuang/",
     "https://github.com/lifestrugglee/"
   ]
 }
@@ -376,36 +422,41 @@
   <div class="wrap nav-inner">
     <a class="brand" href="#top">Patrick Chuang</a>
     <nav class="nav-links" aria-label="Sections">
+      <a href="#research">Research</a>
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
-    </button>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
+      </button>
+      <a class="nav-email" href="mailto:iwill0202@gmail.com">Email me</a>
+    </div>
   </div>
 </header>
 
 <main id="main">
 
   <section class="hero wrap" id="top">
-    <h1>Yao-Shun (Patrick) Chuang</h1>
-    <p class="role">Clinical AI researcher. Ph.D. in Biomedical Informatics at UTHealth Houston, finishing December 2026.</p>
+    <div class="hero-head">
+      <img class="portrait" src="photo.jpg" width="1826" height="2016" alt="Portrait of Yao-Shun (Patrick) Chuang" decoding="async" fetchpriority="high" onerror="this.remove()">
+      <div class="hero-id">
+        <h1>Yao-Shun (Patrick) Chuang</h1>
+        <p class="role">Clinical AI researcher. Ph.D. in Biomedical Informatics at UTHealth Houston, finishing December 2026.</p>
+      </div>
+    </div>
 
     <p class="thesis">I build <mark class="ent ent-method" style="--i:0">language <span class="nw">models<span class="tag" aria-hidden="true">method</span></span></mark> that read <mark class="ent ent-input" style="--i:1">clinical <span class="nw">notes<span class="tag" aria-hidden="true">input</span></span></mark> and extract <mark class="ent ent-output" style="--i:2">the details care teams <span class="nw">need<span class="tag" aria-hidden="true">output</span></span></mark>, <mark class="ent ent-constraint" style="--i:3">without patient data leaving the <span class="nw">hospital<span class="tag" aria-hidden="true">constraint</span></span></mark>.</p>
     <p class="caption">Tagged the way my models tag clinical text.</p>
-
-    <div class="cta">
-      <a class="btn btn-primary" href="mailto:iwill0202@gmail.com">Email me</a>
-    </div>
 
     <dl class="facts">
       <div><dt>Available</dt><dd>January 2027</dd></div>
       <div><dt>Location</dt><dd>Houston, TX, open to relocation</dd></div>
       <div><dt>Work authorization</dt><dd>F-1 STEM OPT eligible, up to 36 months</dd></div>
-      <div><dt>Profiles</dt><dd><a href="https://scholar.google.com/citations?hl=en&amp;user=EGJlBtcAAAAJ">Scholar</a>, <a href="https://www.linkedin.com/in/yao-shun-chuang/">LinkedIn</a>, <a href="https://github.com/lifestrugglee/">GitHub</a></dd></div>
+      <div><dt>Profiles</dt><dd><a href="https://scholar.google.com/citations?hl=en&amp;user=EGJlBtcAAAAJ">Scholar</a>, <a href="https://orcid.org/0000-0001-9582-9222">ORCID</a>, <a href="https://www.linkedin.com/in/yao-shun-chuang/">LinkedIn</a>, <a href="https://github.com/lifestrugglee/">GitHub</a></dd></div>
     </dl>
   </section>
 
@@ -414,10 +465,33 @@
     <section class="section" id="about" aria-labelledby="about-h">
       <h2 id="about-h">About</h2>
       <div class="section-body prose">
-        <p class="lede">I work on getting reliable, reusable information out of electronic health records with methods that respect patient privacy: synthetic clinical text, small language models that can run locally, clinician-guided annotation, and evaluation across institutions.</p>
-        <p>Most of my Ph.D. work, in Dr. Xiaoqian Jiang's lab at UTHealth Houston, applies these ideas to dental records. In 2025 I spent a summer at PAII Inc. fine-tuning and serving a 32B vision-language model for medical images and clinical conversations.</p>
-        <p>Before informatics I trained as a respiratory therapist in Taiwan and then worked as a software engineer. Clinical training taught me what a note is for; engineering taught me to build the pipelines and tools that make a model useful outside a notebook.</p>
-        <p>I'm looking for research scientist and applied ML roles in clinical AI and language models, starting January 2027.</p>
+        <p class="lede">I develop privacy-aware language-model methods that extract clinical information from electronic health records. In dental informatics, this work has shown that models trained on synthetic notes transfer across institutions, and that structured diagnoses tend to understate disease stage compared with the narrative notes.</p>
+        <p>My dissertation, advised by Dr. Xiaoqian Jiang at UTHealth Houston, reduces the annotation, prompt-engineering, and privacy barriers to clinical information extraction with large language models. In 2025 I spent a summer at PAII Inc. working on a 32B medical vision-language model.</p>
+        <p>Before informatics I trained as a respiratory therapist in Taiwan, worked as a software engineer, and studied cardiorespiratory physiology in a bioengineering master's. Clinical training taught me what a note is for; engineering taught me to build the tools that make a model useful outside a notebook.</p>
+        <p>I'm looking for faculty, research scientist, and applied ML positions in clinical AI, starting January 2027.</p>
+      </div>
+    </section>
+
+    <section class="section" id="research" aria-labelledby="research-h">
+      <h2 id="research-h">Research direction</h2>
+      <div class="section-body prose">
+        <p class="lede">I want to turn fragmented clinical data into a reliable estimate of a patient's state, and to model how that state changes over time.</p>
+        <p>By patient state I mean the clinically meaningful phenotypes present at a given time, together with the model's confidence and the evidence behind each estimate. Notes, structured records, images, and physiological signals each capture part of that state, and none captures it completely. My plan has three connected parts, each building on the one before.</p>
+        <ol class="thrusts">
+          <li>
+            <h3>Patient state from clinical narrative</h3>
+            <p>Extend locally deployable language models from entity extraction to time-indexed phenotypes, each with calibrated confidence and a link to the note text that supports it, and send uncertain or conflicting cases to clinicians for review.</p>
+          </li>
+          <li>
+            <h3>Disease trajectories from imperfect records</h3>
+            <p>Estimate how reliable each source is, from structured diagnoses to note-derived phenotypes and imaging, and carry that uncertainty into predictions of disease progression, starting with progression from prediabetes to type 2 diabetes.</p>
+          </li>
+          <li>
+            <h3>Multimodal disease state and treatment response</h3>
+            <p>Add overnight physiology to predict how older adults respond to treatment, beginning with positive airway pressure therapy for obstructive sleep apnea, and report performance across age, frailty, and demographic groups.</p>
+          </li>
+        </ol>
+        <p>The long-term aim is a patient-level digital twin: a model that updates with each new note, measurement, and image, and forecasts outcomes that clinicians can check.</p>
       </div>
     </section>
 
@@ -426,51 +500,55 @@
       <div class="section-body">
         <ul class="work">
           <li class="work-item">
-              <h3>Self-prompting small language models for clinical extraction</h3>
-              <p class="meta">Preprint, arXiv 2026, under review</p>
-              <p class="desc">Small language models write and refine their own entity-specific prompts, then learn from 200 annotated notes through QLoRA fine-tuning and direct preference optimization. The models are small enough to run locally, so notes never go to an outside API.</p>
-              <div class="links"><a href="https://doi.org/10.48550/arXiv.2605.04221">Read the preprint</a></div>
-            <div class="result"><span class="fig">0.864</span><span class="what">micro-F1 across 19 entity types on a 1,000-note held-out set</span></div>
+            <h3>Self-prompting small language models for clinical extraction</h3>
+            <p class="meta">Preprint, arXiv 2026, under review</p>
+            <p class="desc">Small language models write and refine their own entity-specific prompts, and their self-prompt scores help screen which model suits a task. QLoRA fine-tuning followed by direct preference optimization on 200 annotated dental notes raised Qwen2.5-14B-Instruct from 0.780 micro-F1 with prompting alone to 0.864 on a 1,000-note held-out gold standard. The models run locally, so notes stay inside the institution.</p>
+            <div class="links"><a href="https://doi.org/10.48550/arXiv.2605.04221">Read the preprint</a></div>
+            <div class="result"><span class="fig">0.864</span><span class="what">micro-F1 across 19 entity types, up from 0.780</span></div>
           </li>
 
           <li class="work-item">
-              <h3>Synthetic notes that transfer across institutions</h3>
-              <p class="meta">JAMIA Open, 2025</p>
-              <p class="desc">Trained a periodontal diagnosis extractor with spaCy and RoBERTa on 450 GPT-4-generated synthetic notes, then evaluated it on 720 expert-annotated notes from two institutions. It kept 99% of its in-domain performance at the second site.</p>
-              <div class="links"><a href="https://doi.org/10.1093/jamiaopen/ooaf061">Read the paper</a></div>
-            <div class="result"><span class="fig">0.95</span><span class="what">weighted F1 across five diagnostic entities</span></div>
+            <h3>Synthetic notes that transfer across institutions</h3>
+            <p class="meta">JAMIA Open, 2025</p>
+            <p class="desc">Replaced manually annotated training notes with 450 GPT-4 synthetic notes to train a spaCy/RoBERTa periodontal diagnosis extractor. On 360 expert-annotated notes per site, mean weighted F1 across five diagnostic entities was 0.96 at the development site and 0.95 at an external dental school. I coordinated the gold-standard annotation with three dental clinicians.</p>
+            <div class="links"><a href="https://doi.org/10.1093/jamiaopen/ooaf061">Read the paper</a></div>
+            <div class="result"><span class="fig">0.95</span><span class="what">weighted F1 at an external dental school</span></div>
           </li>
 
           <li class="work-item">
-              <h3>Privacy risks in LLM-generated clinical notes</h3>
-              <p class="meta">JAMIA, 2025</p>
-              <p class="desc">Designed PHI-injection and leakage-analysis experiments across 9,817 LLM-generated notes with downstream ICD-9 coding. Injecting synthetic PHI beat standard de-identification on downstream accuracy in 6 of 9 configurations.</p>
-              <div class="links"><a href="https://doi.org/10.1093/jamia/ocaf037">Read the paper</a></div>
-            <div class="result"><span class="fig">&gt;99%</span><span class="what">less PHI exposure with keyword conditioning</span></div>
+            <h3>Structured diagnoses understate disease stage</h3>
+            <p class="meta">Manuscript under review</p>
+            <p class="desc">Compared structured and narrative periodontal diagnoses across 4,542 dental encounters using SQL, transformer-based extraction, and periodontist adjudication. Each format matched the expert diagnosis only about half the time. Where both were recorded they disagreed in 14.8% of encounters, 8.4% by two or more stages.</p>
+            <div class="result"><span class="fig">67.9%</span><span class="what">of disagreements had the milder stage in the structured field</span></div>
           </li>
 
           <li class="work-item">
-              <h3>Struggle Annotator</h3>
-              <p class="meta">Open-source annotation tool, Python and Streamlit</p>
-              <p class="desc">A clinician-facing app with real-time span editing, so reviewers correct model pre-annotations directly instead of labeling from scratch. I built and deployed it and trained our clinical annotators on the guidelines and the tool.</p>
-              <div class="links"><a href="https://github.com/lifestrugglee/struggle_annotator">View the code</a><a href="https://struggle-annotator.streamlit.app/">Try the demo</a></div>
-            <div class="result"><span class="fig">~50%</span><span class="what">less annotation time, estimated</span></div>
+            <h3>Privacy risks in LLM-generated clinical notes</h3>
+            <p class="meta">JAMIA, 2025</p>
+            <p class="desc">Designed PHI-injection and leakage-analysis methods to measure the privacy and utility trade-offs of synthetic clinical text, and compared conditioning and synthetic-PHI strategies through downstream ICD-9 coding. Related co-authored work compares de-identified, synthetic, and hybrid notes as ways to share clinical text.</p>
+            <div class="links"><a href="https://doi.org/10.1093/jamia/ocaf037">Read the paper</a></div>
+            <div class="result"><span class="fig">9,817</span><span class="what">LLM-generated clinical notes analyzed</span></div>
           </li>
 
           <li class="work-item">
-              <h3>Medical vision-language model, fine-tuned and served</h3>
-              <p class="meta">Research Scientist Intern, PAII Inc., 2025</p>
-              <p class="desc">Fine-tuned a 32B vision-language model on medical image-dialogue pairs with LoRA, improving diagnosis extraction over the zero-shot baseline. Quantized it to 4-bit with GPTQ, served it with vLLM across four A100s using tensor parallelism, and grounded prompts in UMLS concepts.</p>
-            <div class="result"><span class="fig">32B</span><span class="what">parameters, served on 4&nbsp;A100 GPUs</span></div>
+            <h3>Struggle Annotator</h3>
+            <p class="meta">Open-source tool, sole developer, Python and Streamlit</p>
+            <p class="desc">A span-labeling and adjudication app that replaced our Excel-based workflow and the manual editing errors that came with it. Six dentists have used it across two projects of 720 and 1,200 notes.</p>
+            <div class="links"><a href="https://github.com/lifestrugglee/struggle_annotator">View the code</a><a href="https://struggle-annotator.streamlit.app/">Try the demo</a></div>
+            <div class="result"><span class="fig">~50%</span><span class="what">less annotation time, by annotators' informal estimate</span></div>
+          </li>
+
+          <li class="work-item">
+            <h3>Medical vision-language model</h3>
+            <p class="meta">Research Scientist Intern, PAII Inc., 2025</p>
+            <p class="desc">Within a team project, fine-tuned a 32B vision-language model with LoRA on medical image-dialogue data, improving diagnosis extraction over the zero-shot baseline (results confidential). Built pipelines for imaging and multi-turn clinical conversations with structured prompting for anatomical localization and bounding boxes, and served the model with vLLM across four A100 GPUs.</p>
+            <div class="result"><span class="fig">~4&times;</span><span class="what">less weight memory with 4-bit GPTQ than BF16</span></div>
           </li>
         </ul>
 
         <div class="also">
-          <h3>Also in progress</h3>
-          <ul>
-            <li><strong>Structured vs. narrative diagnoses.</strong> Compared 4,542 dental encounters using SQL, RoBERTa, and expert adjudication, and found systematic under-staging in structured records. Manuscript under review.</li>
-            <li><strong>A public dental note corpus.</strong> Leading HIPAA Safe Harbor de-identification of 1,200 dental EHR notes for planned public release, with model-assisted pre-annotation, independent clinical review, and adjudication.</li>
-          </ul>
+          <h3>In progress</h3>
+          <p><strong>A dental note corpus for controlled release.</strong> I'm leading a 1,200-note dental EHR corpus. I designed its HIPAA Safe Harbor de-identification workflow (model-assisted pre-annotation, independent review, and adjudication) and trained and supervised the clinical annotators. It is now in de-identification review, with controlled-access release through PhysioNet planned.</p>
         </div>
       </div>
     </section>
@@ -483,34 +561,35 @@
             <div class="role-head"><h3>Graduate Research Assistant</h3><span class="when">May 2021 &ndash; present</span></div>
             <p class="org">UTHealth Houston, Dr. Xiaoqian Jiang's Lab</p>
             <ul>
-              <li>Clinical information extraction with small, locally deployable language models, synthetic training data, and cross-institutional evaluation.</li>
-              <li>Privacy research on synthetic clinical text, PHI leakage, and de-identification.</li>
-              <li>Annotation infrastructure, annotator training, and a de-identified 1,200-note dental corpus for public release.</li>
+              <li>Clinical language models for low-resource settings: self-prompting small language models, synthetic training data, and cross-institutional evaluation.</li>
+              <li>Privacy-risk evaluation of synthetic clinical text, and data-quality studies comparing structured and narrative diagnoses.</li>
+              <li>Annotation infrastructure and a 1,200-note dental corpus, including training and supervising clinical annotators.</li>
             </ul>
           </li>
           <li>
             <div class="role-head"><h3>Research Scientist Intern</h3><span class="when">May &ndash; Aug. 2025</span></div>
             <p class="org">PAII Inc., Palo Alto, CA</p>
             <ul>
-              <li>Fine-tuned and deployed a 32B medical vision-language model with LoRA, 4-bit GPTQ, and vLLM tensor parallelism on four A100 GPUs.</li>
-              <li>Built multimodal pipelines for medical imaging and multi-turn clinical conversations, with structured prompting for anatomical localization and bounding-box prediction.</li>
-              <li>Integrated UMLS concept-graph retrieval into prompts to keep outputs in standardized clinical terminology.</li>
+              <li>Within a team project, fine-tuned a 32B vision-language model with LoRA on medical image-dialogue data and quantized it to 4-bit GPTQ, cutting weight memory about fourfold versus BF16.</li>
+              <li>Developed multimodal pipelines for medical imaging and multi-turn clinical conversations, with structured prompting for anatomical localization and bounding-box prediction.</li>
+              <li>Implemented vLLM inference across four A100 GPUs with tensor parallelism and batched generation for evaluation and deployment.</li>
             </ul>
           </li>
           <li>
             <div class="role-head"><h3>Graduate Research Assistant</h3><span class="when">Oct. 2018 &ndash; Aug. 2021</span></div>
             <p class="org">University of Texas at Arlington</p>
             <ul>
-              <li>Automated extraction and cleaning of blood-pressure waveforms from 6+ hour overnight recordings in MATLAB, replacing manual segment selection in obstructive sleep apnea studies.</li>
-              <li>Characterized blood-pressure dynamics across sleep stages with correlation analysis, ANOVA, and Wilcoxon rank-sum testing; first author on two resulting publications.</li>
+              <li>Developed MATLAB algorithms to extract and clean continuous blood-pressure waveforms from overnight recordings longer than six hours in obstructive sleep apnea studies.</li>
+              <li>Characterized blood-pressure oscillations across sleep stages with signal processing and statistical analysis, leading to two first-author publications.</li>
+              <li>Built a custom data-acquisition device to meet the study protocol's requirements.</li>
             </ul>
           </li>
           <li>
             <div class="role-head"><h3>Software Engineer</h3><span class="when">Sep. 2015 &ndash; Mar. 2017</span></div>
             <p class="org">RiskVal Financial Solutions, Taiwan</p>
             <ul>
-              <li>Redesigned Java time-series data-management algorithms, cutting processing latency by 75%.</li>
-              <li>Built ETL, monitoring, and release-automation tooling in Java, Python, and shell, removing manual release steps.</li>
+              <li>Developed Java time-series data-management algorithms, relational schemas, and back-end services with Python/HTML/jQuery interfaces, reducing processing latency by 75%.</li>
+              <li>Built data-processing, monitoring, and release-automation tools.</li>
             </ul>
           </li>
         </ul>
@@ -520,13 +599,10 @@
     <section class="section" id="publications" aria-labelledby="publications-h">
       <h2 id="publications-h">Publications</h2>
       <div class="section-body">
-        <p class="pubs-note">9 peer-reviewed publications, 6 as first author. The full list is on <a href="https://scholar.google.com/citations?hl=en&amp;user=EGJlBtcAAAAJ">Google Scholar</a>.</p>
+        <p class="pubs-note">9 peer-reviewed publications, 6 as first author: 5 journal articles and 4 conference papers, plus a preprint and a manuscript under review. Also on <a href="https://scholar.google.com/citations?hl=en&amp;user=EGJlBtcAAAAJ">Google Scholar</a> and <a href="https://orcid.org/0000-0001-9582-9222">ORCID</a>.</p>
+
+        <h3 class="pub-group">Journal articles</h3>
         <ul class="pubs">
-          <li>
-            <span class="pub-title">Self-prompting small language models for privacy-sensitive clinical information extraction</span>
-            <span class="pub-authors"><strong>Chuang YS</strong>, Mody T, Singh UP, Shiraz S, Lee CT, Brandon R, Walji MF, Jiang X, Tokede O</span>
-            <span class="pub-venue"><em>arXiv:2605.04221</em>, 2026. Preprint, under review. <a href="https://doi.org/10.48550/arXiv.2605.04221" aria-label="Preprint: Self-prompting small language models">Preprint</a></span>
-          </li>
           <li>
             <span class="pub-title">Cross-institutional dental electronic health record entity extraction via generative artificial intelligence and synthetic notes</span>
             <span class="pub-authors"><strong>Chuang YS</strong>, Lee CT, Lin GH, Brandon R, Jiang X, Walji MF, Tokede O</span>
@@ -535,12 +611,7 @@
           <li>
             <span class="pub-title">Robust privacy amidst innovation with large language models through a critical assessment of the risks</span>
             <span class="pub-authors"><strong>Chuang YS</strong>, Sarkar AR, Hsu YC, Mohammed N, Jiang X</span>
-            <span class="pub-venue"><em>JAMIA</em>, 2025;32(5):885&ndash;892. <a href="https://doi.org/10.1093/jamia/ocaf037" aria-label="Paper: Robust privacy amidst innovation">Paper</a></span>
-          </li>
-          <li>
-            <span class="pub-title">Not fully synthetic: LLM-based hybrid approaches towards privacy-preserving clinical note sharing</span>
-            <span class="pub-authors">Sarkar AR, <strong>Chuang YS</strong>, Jiang X, Mohammed N</span>
-            <span class="pub-venue"><em>AMIA Summits on Translational Science Proceedings</em>, 2025;2025:441. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12150723/" aria-label="Paper: Not fully synthetic">Paper</a></span>
+            <span class="pub-venue"><em>Journal of the American Medical Informatics Association</em>, 2025;32(5):885&ndash;892. <a href="https://doi.org/10.1093/jamia/ocaf037" aria-label="Paper: Robust privacy amidst innovation">Paper</a></span>
           </li>
           <li>
             <span class="pub-title">De-identification is not enough: a comparison between de-identified and synthetic clinical notes</span>
@@ -548,9 +619,75 @@
             <span class="pub-venue"><em>Scientific Reports</em>, 2024;14(1):29669. <a href="https://doi.org/10.1038/s41598-024-81170-y" aria-label="Paper: De-identification is not enough">Paper</a></span>
           </li>
           <li>
+            <span class="pub-title">Ensemble pretrained language models to extract biomedical knowledge from literature</span>
+            <span class="pub-authors">Li Z, Wei Q, Huang LC, Li J, Hu Y, <strong>Chuang YS</strong>, He J, Das A, Keloth VK, Yang Y, Diala CS, Roberts KE, Tao C, Jiang X, Zheng WJ, Xu H</span>
+            <span class="pub-venue"><em>Journal of the American Medical Informatics Association</em>, 2024;31(9):1904&ndash;1911. <a href="https://doi.org/10.1093/jamia/ocae061" aria-label="Paper: Ensemble pretrained language models">Paper</a></span>
+          </li>
+          <li>
+            <span class="pub-title">Respiratory event-induced blood pressure oscillations vary by sleep stage in sleep apnea patients</span>
+            <span class="pub-authors"><strong>Chuang YS</strong>, Alex RM, Jani M, Watenpaugh DE, Vilimkova Kahankova R, Sands SA, Behbehani K</span>
+            <span class="pub-venue"><em>Sleep Disorders</em>, 2023;2023:8787132. <a href="https://doi.org/10.1155/2023/8787132" aria-label="Paper: Blood pressure oscillations vary by sleep stage">Paper</a></span>
+          </li>
+        </ul>
+
+        <h3 class="pub-group">Conference proceedings</h3>
+        <ul class="pubs">
+          <li>
+            <span class="pub-title">Not fully synthetic: LLM-based hybrid approaches towards privacy-preserving clinical note sharing</span>
+            <span class="pub-authors">Sarkar AR, <strong>Chuang YS</strong>, Jiang X, Mohammed N</span>
+            <span class="pub-venue"><em>AMIA Joint Summits on Translational Science Proceedings</em>, 2025;2025:441&ndash;450. <a href="https://pubmed.ncbi.nlm.nih.gov/40502247/" aria-label="Paper: Not fully synthetic">Paper</a></span>
+          </li>
+          <li>
             <span class="pub-title">Use GPT-J prompt generation with RoBERTa for NER models on diagnosis extraction of periodontal diagnosis from electronic dental records</span>
             <span class="pub-authors"><strong>Chuang YS</strong>, Jiang X, Lee CT, Brandon R, Tran TD, Tokede O, Walji MF</span>
-            <span class="pub-venue"><em>AMIA Annual Symposium Proceedings</em>, 2023;2023:904. <a href="https://pubmed.ncbi.nlm.nih.gov/38222409/" aria-label="Paper: GPT-J prompt generation with RoBERTa">Paper</a></span>
+            <span class="pub-venue"><em>AMIA Annual Symposium Proceedings</em>, 2023;2023:904&ndash;912. <a href="https://pubmed.ncbi.nlm.nih.gov/38222409/" aria-label="Paper: GPT-J prompt generation with RoBERTa">Paper</a></span>
+          </li>
+          <li>
+            <span class="pub-title">Extracting periodontitis diagnosis in clinical notes with RoBERTa and regular expression</span>
+            <span class="pub-authors"><strong>Chuang YS</strong>, Lee CT, Brandon R, Tran TD, Tokede O, Walji MF, Jiang X</span>
+            <span class="pub-venue"><em>IEEE International Conference on Healthcare Informatics (ICHI)</em>, 2023:200&ndash;205. <a href="https://doi.org/10.1109/ICHI57859.2023.00036" aria-label="Paper: Extracting periodontitis diagnosis with RoBERTa">Paper</a></span>
+          </li>
+          <li>
+            <span class="pub-title">Quantification of nocturnal blood pressure oscillations induced by sleep disordered breathing</span>
+            <span class="pub-authors"><strong>Chuang YS</strong>, Jani MB, Soltan Zadi A, Alex RM, Zhang R, Watenpaugh DE, Behbehani K</span>
+            <span class="pub-venue"><em>IEEE Engineering in Medicine and Biology Society (EMBC)</em>, 2020:2784&ndash;2787. <a href="https://doi.org/10.1109/EMBC44109.2020.9175150" aria-label="Paper: Nocturnal blood pressure oscillations">Paper</a></span>
+          </li>
+        </ul>
+
+        <h3 class="pub-group">Preprints and manuscripts under review</h3>
+        <ul class="pubs">
+          <li>
+            <span class="pub-title">Self-prompting small language models for privacy-sensitive clinical information extraction</span>
+            <span class="pub-authors"><strong>Chuang YS</strong>, Mody T, Singh UP, Shiraz S, Lee CT, Brandon R, Walji MF, Jiang X, Tokede O</span>
+            <span class="pub-venue"><em>arXiv:2605.04221</em>, 2026. Preprint, under review. <a href="https://doi.org/10.48550/arXiv.2605.04221" aria-label="Preprint: Self-prompting small language models">Preprint</a></span>
+          </li>
+          <li>
+            <span class="pub-title">Can dental EHR data support a learning health system? Completeness, consistency, and accuracy of structured versus narrative diagnoses</span>
+            <span class="pub-authors"><strong>Chuang YS</strong>, Lin GH, Lee CT, Brandon R, Walji MF, Jiang X, Tokede O</span>
+            <span class="pub-venue">Manuscript under review.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="teaching" aria-labelledby="teaching-h">
+      <h2 id="teaching-h">Teaching and mentoring</h2>
+      <div class="section-body">
+        <ul class="roles">
+          <li>
+            <div class="role-head"><h3>Research mentoring</h3><span class="when">2024 &ndash; 2026</span></div>
+            <p class="org">Dental corpus annotation team, UTHealth Houston</p>
+            <p>Supervised three dentists annotating the 1,200-note dental corpus: trained them on the guidelines and the annotation tool, reviewed their work, led adjudication of disagreements, and revised the guidelines over five rounds. Their annotations became the training set and gold standard for the self-prompting study, and all three are co-authors.</p>
+          </li>
+          <li>
+            <div class="role-head"><h3>Teaching Assistant</h3><span class="when">2026</span></div>
+            <p class="org">BMI 5311: Foundations of Biomedical Information Sciences II, McWilliams School of Biomedical Informatics, UTHealth Houston</p>
+            <p>Checked the cited sources in research-article reflections from more than 20 graduate students, and reported reflections that discussed nonexistent articles to the instructors for academic-integrity review.</p>
+          </li>
+          <li>
+            <div class="role-head"><h3>Teaching Assistant</h3><span class="when">2019 &ndash; 2020</span></div>
+            <p class="org">BE 3301: Cell Physiology, Department of Bioengineering, University of Texas at Arlington</p>
+            <p>Supported undergraduate and graduate students on problem sets and course projects.</p>
           </li>
         </ul>
       </div>
@@ -560,25 +697,26 @@
       <h2 id="skills-h">Skills</h2>
       <div class="section-body">
         <dl class="grid-dl">
-          <dt>Languages</dt>
-          <dd>Python, SQL, Java, MATLAB, Bash</dd>
-          <dt>ML and LLMs</dt>
-          <dd>PyTorch, Hugging Face Transformers, scikit-learn, spaCy, LoRA/QLoRA, DPO, instruction tuning, multimodal models</dd>
-          <dt>Inference and engineering</dt>
-          <dd>vLLM, GPTQ, tensor parallelism, Docker, Git/GitHub, Linux, Streamlit, OpenAI API, GPU benchmarking and profiling</dd>
-          <dt>Clinical NLP and data</dt>
-          <dd>Named entity recognition, information extraction, synthetic clinical text, PHI de-identification, EHR/EDR, UMLS, MIMIC-III, ICD-9, HIPAA Safe Harbor</dd>
+          <dt>Methods</dt>
+          <dd>Clinical information extraction with locally deployable language models, parameter-efficient and preference fine-tuning, synthetic clinical text, privacy-risk evaluation, PHI de-identification, clinical data-quality assessment, annotation and adjudication design, cross-institutional validation, vision-language models, physiological signal processing</dd>
+          <dt>Languages and libraries</dt>
+          <dd>Python, SQL, Java, MATLAB, Bash, PyTorch, Hugging Face Transformers, scikit-learn, spaCy</dd>
+          <dt>Training and inference</dt>
+          <dd>LoRA/QLoRA, DPO, instruction tuning, vLLM, GPTQ, tensor parallelism, Docker, Git/GitHub, Linux, Streamlit, OpenAI API, GPU benchmarking and profiling</dd>
+          <dt>Data</dt>
+          <dd>Dental and medical EHRs (including MIMIC-III), ICD-9 coding, HIPAA Safe Harbor, overnight cardiorespiratory recordings</dd>
         </dl>
       </div>
     </section>
 
     <section class="section" id="education" aria-labelledby="education-h">
-      <h2 id="education-h">Education</h2>
+      <h2 id="education-h">Education and certificates</h2>
       <div class="section-body">
         <ul class="edu">
           <li>
-            <div class="role-head"><h3>Ph.D., Biomedical Informatics</h3><span class="when">Expected Dec. 2026</span></div>
+            <div class="role-head"><h3>Ph.D., Biomedical Informatics</h3><span class="when">2021 &ndash; expected Dec. 2026</span></div>
             <p class="org">UTHealth Houston, McWilliams School of Biomedical Informatics</p>
+            <p class="detail">Dissertation: <em>Reducing Annotation, Prompt-Engineering, and Privacy Barriers in Clinical Information Extraction with Large Language Models.</em> Advisor: Xiaoqian Jiang, PhD.</p>
           </li>
           <li>
             <div class="role-head"><h3>M.S., Bioengineering</h3><span class="when">2018 &ndash; 2020</span></div>
@@ -589,8 +727,12 @@
             <p class="org">Fu Jen Catholic University, Taiwan</p>
           </li>
           <li>
-            <div class="role-head"><h3>Respiratory Therapist Certificate</h3><span class="when">2015</span></div>
-            <p class="org">Taiwan</p>
+            <div class="role-head"><h3>Respiratory Therapist Certificate</h3><span class="when">2013</span></div>
+            <p class="org">Ministry of Health and Welfare, Taiwan</p>
+          </li>
+          <li>
+            <div class="role-head"><h3>Data Science Certificate</h3><span class="when">2015</span></div>
+            <p class="org">Institute for Information Industry, Taiwan</p>
           </li>
         </ul>
       </div>
@@ -602,21 +744,23 @@
         <div class="rec">
           <h3>Honors</h3>
           <ul>
-            <li>Interoperability Innovation Fund <span class="yr">(2026)</span></li>
+            <li>Interoperability Innovation Fund, competitive scholarship, UTHealth Houston <span class="yr">(2026)</span></li>
             <li>D. Bradley McWilliams Scholars Endowed Scholarship, UTHealth Houston <span class="yr">(2024, 2025)</span></li>
             <li>Dean's Excellence Award, UTHealth Houston <span class="yr">(2022)</span></li>
           </ul>
         </div>
         <div class="rec">
-          <h3>Talks</h3>
+          <h3>Presentations</h3>
           <ul>
-            <li>Oral presentations at AMIA Annual Symposium <span class="yr">(2023)</span>, IEEE ICHI <span class="yr">(2023)</span>, and AMIA Informatics Summit <span class="yr">(2025)</span></li>
-            <li>Poster at AI in Dentistry Symposium <span class="yr">(2025)</span></li>
+            <li>Poster, &ldquo;From Silos to Synergy: A Temporal Network Analysis of AI-Dentistry Collaborations (1948&ndash;2025),&rdquo; AI in Dentistry Symposium, Boston, MA <span class="yr">(Nov. 2025)</span></li>
+            <li>Oral presentation, AMIA Informatics Summit, Pittsburgh, PA <span class="yr">(Mar. 2025)</span></li>
+            <li>Oral presentation, AMIA Annual Symposium, New Orleans, LA <span class="yr">(Nov. 2023)</span></li>
+            <li>Oral presentation, IEEE International Conference on Healthcare Informatics, Houston, TX <span class="yr">(June 2023)</span></li>
           </ul>
         </div>
         <div class="rec">
           <h3>Peer review</h3>
-          <p>35+ reviews since 2023 for AMIA Annual Symposium and Summits (20+), Scientific Reports (7), npj Digital Medicine (3), npj Artificial Intelligence, Journal of Healthcare Informatics Research, BioData Mining, Discover Artificial Intelligence, and BMC Medical Education.</p>
+          <p>35+ manuscript and conference reviews since 2023, including AMIA Annual Symposium and Summits (20+), Scientific Reports (7), npj Digital Medicine (3), npj Artificial Intelligence, Journal of Healthcare Informatics Research, BioData Mining, Discover Artificial Intelligence, and BMC Medical Education.</p>
         </div>
       </div>
     </section>
@@ -624,9 +768,9 @@
     <section class="section" id="contact" aria-labelledby="contact-h">
       <h2 id="contact-h">Contact</h2>
       <div class="section-body">
-        <p class="lede">I'm available from January 2027 and glad to talk about research scientist, applied ML, and clinical NLP roles. Email is the fastest way to reach me.</p>
+        <p class="lede">I'm available from January 2027 and glad to talk about faculty, research scientist, and applied ML positions in clinical AI. Email is the fastest way to reach me.</p>
         <a class="contact-mail" href="mailto:iwill0202@gmail.com">iwill0202@gmail.com</a>
-        <p><a href="https://www.linkedin.com/in/yao-shun-chuang/">LinkedIn</a>, <a href="https://scholar.google.com/citations?hl=en&amp;user=EGJlBtcAAAAJ">Google Scholar</a>, and <a href="https://github.com/lifestrugglee/">GitHub</a>.</p>
+        <p><a href="https://www.linkedin.com/in/yao-shun-chuang/">LinkedIn</a>, <a href="https://scholar.google.com/citations?hl=en&amp;user=EGJlBtcAAAAJ">Google Scholar</a>, <a href="https://orcid.org/0000-0001-9582-9222">ORCID</a>, and <a href="https://github.com/lifestrugglee/">GitHub</a>.</p>
       </div>
     </section>
 
