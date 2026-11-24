@@ -11,7 +11,7 @@
 <meta property="og:title" content="Yao-Shun (Patrick) Chuang | Clinical AI Researcher">
 <meta property="og:description" content="Privacy-aware language models for clinical information extraction, and reliable estimates of patient state over time. Available January 2027.">
 <meta property="og:url" content="https://lifestrugglee.github.io/">
-<meta property="og:image" content="https://lifestrugglee.github.io/photo.jpg">
+<meta property="og:image" content="https://lifestrugglee.github.io/PatrickChuang.JPG">
 <meta property="og:image:alt" content="Portrait of Yao-Shun (Patrick) Chuang">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#F5F7F5" media="(prefers-color-scheme: light)">
@@ -46,7 +46,7 @@
 
     --serif: "Literata", Georgia, "Times New Roman", serif;
     --sans: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --wrap: 70rem;
+    --wrap: 80rem;
     --gutter: clamp(1rem, 4vw, 2.5rem);
     color-scheme: light;
   }
@@ -355,7 +355,37 @@
 
   footer { border-top: 1px solid var(--rule); padding-block: 2rem 2.5rem; font-size: .88rem; color: var(--ink-2); }
 
+  /* Page layout with right-hand table of contents */
+  .page { display: grid; grid-template-columns: minmax(0, 1fr) 11rem; column-gap: 3rem; }
+  .content { min-width: 0; }
+  .toc { border-top: 1px solid var(--rule); }
+  .toc nav {
+    position: sticky; top: 3.6rem;
+    max-height: calc(100vh - 3.6rem);
+    overflow-y: auto;
+    padding-block: clamp(3rem, 7vw, 4.75rem) 1.5rem;
+  }
+  .toc-title { margin: 0 0 .75rem; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+  .toc ol { list-style: none; margin: 0; padding: 0; }
+  .toc li + li { margin-top: 0; }
+  .toc a {
+    display: block;
+    padding: .32rem 0 .32rem .85rem;
+    border-left: 2px solid var(--rule);
+    font-size: .92rem;
+    line-height: 1.35;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition: color .15s, border-color .15s;
+  }
+  .toc a:hover { color: var(--ink); text-decoration: none; border-left-color: var(--ink-2); }
+  .toc a.is-active { font-weight: 700; color: var(--ink); border-left-color: var(--accent); }
+
   /* Smaller screens */
+  @media (max-width: 1100px) {
+    .page { grid-template-columns: minmax(0, 1fr); }
+    .toc { display: none; }
+  }
   @media (max-width: 900px) {
     .nav-links { display: none; }
   }
@@ -377,11 +407,13 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .ent, .tag { animation: none; }
+    .toc a { transition: none; }
   }
 
   @media print {
     :root { --paper: #fff; --ink: #000; --ink-2: #333; --rule: #bbb; --accent: #000; color-scheme: light; }
-    .site-nav, .caption, .skip { display: none !important; }
+    .site-nav, .caption, .skip, .toc { display: none !important; }
+    .page { display: block; }
     .ent, .tag { animation: none; }
     .section { padding-block: 1.5rem; break-inside: avoid-page; }
     .section > h2 { position: static; }
@@ -398,7 +430,7 @@
   "jobTitle": "Clinical AI Researcher",
   "email": "mailto:iwill0202@gmail.com",
   "url": "https://lifestrugglee.github.io/",
-  "image": "https://lifestrugglee.github.io/photo.jpg",
+  "image": "https://lifestrugglee.github.io/PatrickChuang.JPG",
   "address": { "@type": "PostalAddress", "addressLocality": "Houston", "addressRegion": "TX", "addressCountry": "US" },
   "alumniOf": [
     { "@type": "CollegeOrUniversity", "name": "The University of Texas Health Science Center at Houston" },
@@ -460,7 +492,8 @@
     </dl>
   </section>
 
-  <div class="wrap">
+  <div class="wrap page">
+  <div class="content">
 
     <section class="section" id="about" aria-labelledby="about-h">
       <h2 id="about-h">About</h2>
@@ -775,6 +808,25 @@
     </section>
 
   </div>
+
+  <aside class="toc">
+    <nav aria-labelledby="toc-h">
+      <p class="toc-title" id="toc-h">On this page</p>
+      <ol>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research direction</a></li>
+        <li><a href="#work">Selected work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching and mentoring</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#recognition">Recognition and service</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+  </aside>
+  </div>
 </main>
 
 <footer>
@@ -802,6 +854,35 @@
       label();
     });
     if (mq && mq.addEventListener) mq.addEventListener('change', label);
+  })();
+
+  // Scrollspy: bold the sidebar link for the section currently in view.
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+    var sections = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+    var current = -1;
+    function update() {
+      var line = window.innerHeight * 0.3;
+      var idx = -1;
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i] && sections[i].getBoundingClientRect().top <= line) idx = i;
+      }
+      var doc = document.documentElement;
+      if (window.innerHeight + window.scrollY >= doc.scrollHeight - 2) idx = sections.length - 1;
+      if (idx === current) return;
+      if (current > -1) { links[current].classList.remove('is-active'); links[current].removeAttribute('aria-current'); }
+      if (idx > -1) { links[idx].classList.add('is-active'); links[idx].setAttribute('aria-current', 'location'); }
+      current = idx;
+    }
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; update(); });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
   })();
 </script>
 </body>
